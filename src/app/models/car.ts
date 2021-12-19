@@ -13,7 +13,15 @@ export interface Car {
     built: string;
     comment: string;
     outOfService: boolean;
-    location?: string;
+    location?: {
+        userName: string;
+        name: string;
+        route?: unknown;
+        track: {
+            userName: string;
+            name: string;
+        };
+    };
     destination?: string;
     load: string;
     hazardous: boolean;

@@ -15,13 +15,13 @@ export class JmriService {
         this.baseUrl = `http://${this.hostname}`;
     }
 
-    getCars(): Observable<ApiResponse<Car>> {
+    getCars(): Observable<ApiResponse<Car>[]> {
         const route = `${this.baseUrl}/cars`;
-        return this.http.get<ApiResponse<Car>>(route);
+        return this.http.get<ApiResponse<Car>[]>(route);
     }
 
-    getLocations(): Observable<ApiResponse<Location>> {
+    getLocations(): Observable<ApiResponse<Location>[]> {
         const route = `${this.baseUrl}/locations`;
-        return this.http.get<ApiResponse<Location>>(route);
+        return this.http.get<ApiResponse<Location>[]>(route);
     }
 }
