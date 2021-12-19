@@ -10,10 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarsViewComponent, HomeViewComponent } from './views';
+import { CarsViewComponent, HomeViewComponent, LocationsViewComponent } from './views';
 
 @NgModule({
-    declarations: [AppComponent, HomeViewComponent, CarsViewComponent],
+    declarations: [AppComponent, HomeViewComponent, CarsViewComponent, LocationsViewComponent],
     imports: [
         AppRoutingModule,
         BrowserAnimationsModule,

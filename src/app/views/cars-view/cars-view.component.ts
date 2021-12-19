@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Car } from 'src/app/models';
@@ -11,12 +11,12 @@ import { JmriService } from 'src/app/services';
     styleUrls: ['./cars-view.component.scss'],
 })
 export class CarsViewComponent implements OnInit {
-    dataSource$: Observable<Car[]>;
+    cars$: Observable<Car[]>;
 
     displayedColumns: string[] = ['road', 'number', 'carType', 'location'];
 
     constructor(private jmriSvc: JmriService) {
-        this.dataSource$ = this.jmriSvc.getCars().pipe(map((response) => response.map((car) => car.data)));
+        this.cars$ = this.jmriSvc.getCars().pipe(map((response) => response.map((car) => car.data)));
     }
 
     ngOnInit(): void {}
