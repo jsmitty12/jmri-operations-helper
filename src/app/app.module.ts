@@ -7,20 +7,30 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarsViewComponent, HomeViewComponent, LocationsViewComponent } from './views';
+import { CarsViewComponent, HomeViewComponent, LocationDetailsViewComponent, LocationsViewComponent } from './views';
 
 @NgModule({
-    declarations: [AppComponent, HomeViewComponent, CarsViewComponent, LocationsViewComponent],
+    declarations: [
+        AppComponent,
+        HomeViewComponent,
+        CarsViewComponent,
+        LocationsViewComponent,
+        LocationDetailsViewComponent,
+    ],
     imports: [
         AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
         HttpClientModule,
         MatButtonModule,
+        MatCardModule,
         MatSidenavModule,
+        MatSortModule,
         MatTableModule,
         MatToolbarModule,
     ],

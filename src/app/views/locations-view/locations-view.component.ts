@@ -13,7 +13,7 @@ import { Location } from 'src/app/models';
 export class LocationsViewComponent implements OnInit {
     locations$: Observable<Location[]>;
 
-    displayedColumns: string[] = ['userName', 'length', 'carTypes', 'tracks'];
+    displayedColumns: string[] = ['userName', 'length', 'carTypes', 'track', 'actions'];
 
     constructor(private jmriSvc: JmriService) {
         this.locations$ = this.jmriSvc.getLocations().pipe(map((location) => location.map((r) => r.data)));

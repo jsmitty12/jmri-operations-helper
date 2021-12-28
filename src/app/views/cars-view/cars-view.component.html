@@ -1,21 +1,28 @@
-<table mat-table [dataSource]="cars$" class="mat-elevation-z8">
-    <ng-container matColumnDef="road">
-        <th mat-header-cell *matHeaderCellDef>Road</th>
-        <td mat-cell *matCellDef="let car">{{ car.road }}</td>
-    </ng-container>
-    <ng-container matColumnDef="number">
-        <th mat-header-cell *matHeaderCellDef>Number</th>
-        <td mat-cell *matCellDef="let car">{{ car.number }}</td>
-    </ng-container>
-    <ng-container matColumnDef="carType">
-        <th mat-header-cell *matHeaderCellDef>Type</th>
-        <td mat-cell *matCellDef="let car">{{ car.carType }}</td>
-    </ng-container>
+<mat-card>
+    <mat-card-title-group>
+        <mat-card-title>Cars</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content>
+        <table mat-table [dataSource]="cars$" class="mat-elevation-z8">
+            <ng-container matColumnDef="road">
+                <th mat-header-cell *matHeaderCellDef>Road</th>
+                <td mat-cell *matCellDef="let car">{{ car.road }}</td>
+            </ng-container>
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef>Number</th>
+                <td mat-cell *matCellDef="let car">{{ car.number }}</td>
+            </ng-container>
+            <ng-container matColumnDef="carType">
+                <th mat-header-cell *matHeaderCellDef>Type</th>
+                <td mat-cell *matCellDef="let car">{{ car.carType }}</td>
+            </ng-container>
 
-    <ng-container matColumnDef="location">
-        <th mat-header-cell *matHeaderCellDef>Location</th>
-        <td mat-cell *matCellDef="let car">{{ car.location?.userName }}</td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+            <ng-container matColumnDef="location">
+                <th mat-header-cell *matHeaderCellDef>Location</th>
+                <td mat-cell *matCellDef="let car">{{ car.location?.userName }}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

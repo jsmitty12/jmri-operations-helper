@@ -1,0 +1,21 @@
+<mat-card *ngIf="location; else loading">
+    <mat-card-title>{{ location.userName }}</mat-card-title>
+    <div>
+        Length: <span class="value">{{ location.length | number }} ft</span>
+    </div>
+    <div *ngIf="location.comment">
+        Comment: <span class="value">{{ location.comment }}</span>
+    </div>
+    <!-- <div>Car Types: <span><ng-container *ngFor="location.carType" let-carType>{{ carType }}</ng-container></span></div> -->
+    <div>
+        Cars at this location:
+        <ng-container *ngIf="carsAtLocation$ | async; let cars">
+            <ul *ngIf="cars.length; else noCarsAtLocation" class="value">
+                <li *ngFor="let car of cars; index as i; trackBy: carTrackBy">{{ car.name }}</li>
+            </ul>
+            <ng-template #noCarsAtLocation><em>There are no cars at this location</em></ng-template>
+        </ng-container>
+    </div>
+</mat-card>
+
+<ng-template #loading>Loading...</ng-template>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarsViewComponent, HomeViewComponent, LocationsViewComponent } from './views';
+import { LocationResolverService } from 'src/app/services/location-resolver.service';
+import { CarsViewComponent, HomeViewComponent, LocationDetailsViewComponent, LocationsViewComponent } from './views';
 
 const routes: Routes = [
     {
@@ -13,7 +14,16 @@ const routes: Routes = [
     },
     {
         path: 'locations',
-        component: LocationsViewComponent,
+        children: [
+            { path: '', component: LocationsViewComponent },
+            {
+                path: ':locationName',
+                component: LocationDetailsViewComponent,
+                resolve: {
+                    location: LocationResolverService,
+                },
+            },
+        ],
     },
 ];
 
